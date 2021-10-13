@@ -57,10 +57,10 @@ Then just access : http://localhost:4200/home .
 
 ## Examples:
 
-![Home](src\assets\home-snapshot.png)
-![Book listing](src\assets\bookListing-snapshot.png)
-![Book register](src\assets\bookRegister-snapshot.png)
-![Book editing](src\assets\bookEditing-snapshot.png)
+![img](src/assets/home-snapshot.png)
+![img](src/assets/bookListing-snapshot.png)
+![img](src/assets/bookRegister-snapshot.png)
+![img](src/assets/bookEditing-snapshot.png)
 
 ## Authors
 
