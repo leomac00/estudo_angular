@@ -10,8 +10,7 @@ import { Router } from "@angular/router";
 export class BooksService {
   constructor(private http: HttpClient, private router: Router) {}
   booksUrl: string = "https://localhost:5001/api/books/";
-  defaultErrorMessage: string =
-    "There was an error while processing the request.\nPlease review information submitted.";
+  errorMessage: string = "";
   getAllBooks(): Observable<IBook[]> {
     let response = this.http.get<IBook[]>(this.booksUrl);
     return response;
@@ -27,7 +26,8 @@ export class BooksService {
         this.router.navigate(["/myBookList"]);
       },
       (error) => {
-        alert(this.defaultErrorMessage);
+        this.errorMessage = this.handleErrorMessage(error);
+        alert(this.errorMessage);
         console.log(error);
       }
     );
@@ -39,7 +39,8 @@ export class BooksService {
         this.router.navigate(["/myBookList"]);
       },
       (error) => {
-        alert(this.defaultErrorMessage);
+        this.errorMessage = this.handleErrorMessage(error);
+        alert(this.errorMessage);
         console.log(error);
       }
     );
@@ -51,9 +52,26 @@ export class BooksService {
         window.location.reload();
       },
       (error) => {
-        alert(this.defaultErrorMessage);
+        this.errorMessage = this.handleErrorMessage(error);
+        alert(this.errorMessage);
         console.log(error);
       }
     );
+  }
+  handleErrorMessage(error: any): string {
+    let errors = Object.entries(error.error.errors);
+    let formattedMessage =
+      "There was an error while processing the request.\nPlease review information submitted:\n";
+    errors.forEach((errorItem) => {
+      if (
+        errorItem[1] ==
+        "The JSON value could not be converted to System.Boolean. Path: $.liked | LineNumber: 0 | BytePositionInLine: 86."
+      ) {
+        formattedMessage += "- Liked status is mandatory\n";
+      } else {
+        formattedMessage += "- " + errorItem[1] + "\n";
+      }
+    });
+    return formattedMessage;
   }
 }

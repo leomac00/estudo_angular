@@ -34,7 +34,6 @@ export class EditBookComponent implements OnInit {
     });
   }
   onSubmit(): void {
-    let res = this.BooksService.updateBook(this.id, this.form.value);
-    console.log(res);
+    this.BooksService.updateBook(this.id, this.form.value);
   }
 }
