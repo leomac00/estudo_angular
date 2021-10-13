@@ -1,0 +1,11 @@
+<div class="container main-container">
+  <div class="row text-center">
+    <div
+      *ngFor="let book of books"
+      class="col-md-4"
+      style="padding-bottom: 30px"
+    >
+      <book-card [book]="book"></book-card>
+    </div>
+  </div>
+</div>

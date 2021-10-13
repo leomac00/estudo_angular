@@ -1,0 +1,112 @@
+<div class="container main-container">
+  <h2>
+    Book info update for <i class="text-success">{{ book.title }}</i>
+  </h2>
+  <form class="form-horizontal" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <div class="col-sm-12">
+        <label for="title" class="control-label">Title:</label>
+      </div>
+      <div class="col-sm-12">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="title"
+          id="title"
+          placeholder="{{ book.title }}"
+        />
+      </div>
+
+      <div class="col-sm-12">
+        <label for="author" class="control-label">Author:</label>
+      </div>
+      <div class="col-sm-12">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="author"
+          id="author"
+          placeholder="{{ book.author }}"
+        />
+      </div>
+
+      <div class="col-sm-12">
+        <label for="description" class="control-label">Description:</label>
+      </div>
+      <div class="col-sm-12">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="description"
+          id="description"
+          placeholder="{{ book.description }}"
+        />
+      </div>
+
+      <div class="col-sm-12">
+        <label for="cover" class="control-label">Cover Url:</label>
+      </div>
+      <div class="col-sm-12">
+        <input
+          type="url"
+          class="form-control"
+          formControlName="cover"
+          id="cover"
+          placeholder="{{ book.cover }}"
+        />
+      </div>
+
+      <div class="col-sm-12">
+        <label for="status" class="control-label">Status:</label>
+      </div>
+
+      <div class="col-sm-12">
+        <div class="form-radio">
+          <input
+            class="form-radio-input"
+            type="radio"
+            id="wantoread"
+            formControlName="status"
+            value="WANT TO READ"
+            checked
+          />
+          <label for="wantoread">WANT TO READ</label>
+        </div>
+
+        <div class="form-radio">
+          <input
+            class="form-radio-input"
+            type="radio"
+            id="finished"
+            formControlName="status"
+            value="FINISHED"
+          />
+          <label for="finished">FINISHED</label>
+        </div>
+
+        <div class="form-radio">
+          <input
+            class="form-radio-input"
+            type="radio"
+            id="reading"
+            formControlName="status"
+            value="READING"
+          />
+          <label for="reading">READING</label>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <label for="liked" class="control-label">Liked ? </label>
+        <input type="checkbox" id="liked" formControlName="liked" />
+      </div>
+    </div>
+    <button
+      title="Submit {{ book.title }} updated info"
+      class="btn btn-primary"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
