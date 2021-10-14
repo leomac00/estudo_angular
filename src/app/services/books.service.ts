@@ -63,14 +63,7 @@ export class BooksService {
     let formattedMessage =
       "There was an error while processing the request.\nPlease review information submitted:\n";
     errors.forEach((errorItem) => {
-      if (
-        errorItem[1] ==
-        "The JSON value could not be converted to System.Boolean. Path: $.liked | LineNumber: 0 | BytePositionInLine: 86."
-      ) {
-        formattedMessage += "- Liked status is mandatory\n";
-      } else {
-        formattedMessage += "- " + errorItem[1] + "\n";
-      }
+      formattedMessage += "- " + errorItem[1] + "\n";
     });
     return formattedMessage;
   }

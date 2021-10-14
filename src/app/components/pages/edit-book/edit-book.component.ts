@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { IBook } from "src/app/data/ibook";
 import { BooksService } from "src/app/services/books.service";
@@ -30,7 +30,7 @@ export class EditBookComponent implements OnInit {
       description: null,
       cover: null,
       status: null,
-      liked: null,
+      liked: new FormControl(false),
     });
   }
   onSubmit(): void {
