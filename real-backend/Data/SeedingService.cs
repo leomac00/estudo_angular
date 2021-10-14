@@ -12,7 +12,7 @@ namespace real_backend.Data
     public void Seed()
     {
       if (database.Books.Any()) return;
-      Book[] books = new Book[6];
+      Book[] books = new Book[9];
       books[0] = new Book()
       {
         Title = "Name of the wind",
@@ -66,6 +66,33 @@ namespace real_backend.Data
         Cover = "https://m.media-amazon.com/images/I/41c4OJNuZPL.jpg",
         Status = "WANT TO READ",
         Liked = false
+      };
+      books[6] = new Book()
+      {
+        Title = "Clean Code",
+        Author = "Uncle Bob",
+        Description = "Uncle Bob teaches us how to write good code.",
+        Cover = "https://images-na.ssl-images-amazon.com/images/I/41yafGMO+rL._SX258_BO1,204,203,200_.jpg",
+        Status = "READING",
+        Liked = true
+      };
+      books[7] = new Book()
+      {
+        Title = "H.P. Lovecraft - Medo Clássico - Vol. 1 - Cosmic Edition: O mestre dos mestres para todas as gerações",
+        Author = "H.P. Lovecraft",
+        Description = "lOVECRAFTIAN STUFF.",
+        Cover = "https://images-na.ssl-images-amazon.com/images/I/51gfbN03iWL._SY344_BO1,204,203,200_QL70_ML2_.jpg",
+        Status = "WANT TO READ",
+        Liked = false
+      };
+      books[8] = new Book()
+      {
+        Title = "O macaco e a mola",
+        Author = " Sônia Junqueira",
+        Description = "First book I´ve ever read.",
+        Cover = "https://images-na.ssl-images-amazon.com/images/I/41EZtzDsLbL._SX355_BO1,204,203,200_.jpg",
+        Status = "FINISHED",
+        Liked = true
       };
       database.Books.AddRange(books);
       database.SaveChanges();
