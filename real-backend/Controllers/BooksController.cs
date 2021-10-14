@@ -73,8 +73,8 @@ namespace real_backend.Controllers
         });
       }
     }
-    [HttpPatch("{id}")]
-    public IActionResult Patch([FromBody] BookDTO bookDTO, int id)
+    [HttpPut("{id}")]
+    public IActionResult Put([FromBody] BookDTO bookDTO, int id)
     {
       try
       {

@@ -20,7 +20,7 @@ export class EditBookComponent implements OnInit {
   public id: number = this.route.snapshot.params["id"];
   ngOnInit(): void {
     //Get book from API
-    this.BooksService.getBookById(this.id).subscribe((book) => {
+    this.BooksService.observeById(this.id).subscribe((book) => {
       this.book = book;
     });
     //build form
@@ -34,6 +34,6 @@ export class EditBookComponent implements OnInit {
     });
   }
   onSubmit(): void {
-    this.BooksService.updateBook(this.id, this.form.value);
+    this.BooksService.update(this.id, this.form.value);
   }
 }

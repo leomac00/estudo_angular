@@ -12,7 +12,7 @@ export class BookCardComponent implements OnInit {
   constructor(private BooksService: BooksService) {}
 
   delete(id: number): void {
-    this.BooksService.deleteBook(id);
+    this.BooksService.delete(id);
   }
   ngOnInit(): void {}
 }

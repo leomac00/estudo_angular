@@ -11,7 +11,7 @@ export class MyBookListComponent implements OnInit {
   constructor(private BooksService: BooksService) {}
   public books!: IBook[];
   ngOnInit(): void {
-    this.BooksService.getAllBooks().subscribe(
+    this.BooksService.observeAll().subscribe(
       (books) => {
         this.books = books;
       },

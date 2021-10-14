@@ -11,15 +11,13 @@ export class BooksService {
   constructor(private http: HttpClient, private router: Router) {}
   booksUrl: string = "https://localhost:5001/api/books/";
   errorMessage: string = "";
-  getAllBooks(): Observable<IBook[]> {
-    let response = this.http.get<IBook[]>(this.booksUrl);
-    return response;
+  observeAll(): Observable<IBook[]> {
+    return this.http.get<IBook[]>(this.booksUrl);
   }
-  getBookById(id: number): Observable<IBook> {
-    let response: Observable<IBook> = this.http.get<IBook>(this.booksUrl + id);
-    return response;
+  observeById(id: number): Observable<IBook> {
+    return this.http.get<IBook>(this.booksUrl + id);
   }
-  registerBook(bookInfo: string): void {
+  register(bookInfo: string): void {
     this.http.post(this.booksUrl, bookInfo).subscribe(
       (res) => {
         alert("The book was registered successfully");
@@ -32,8 +30,8 @@ export class BooksService {
       }
     );
   }
-  updateBook(id: number, bookInfo: string): void {
-    this.http.patch(this.booksUrl + id, bookInfo).subscribe(
+  update(id: number, bookInfo: string): void {
+    this.http.put(this.booksUrl + id, bookInfo).subscribe(
       (res) => {
         alert("The book was updated successfully");
         this.router.navigate(["/myBookList"]);
@@ -45,7 +43,7 @@ export class BooksService {
       }
     );
   }
-  deleteBook(id: number): void {
+  delete(id: number): void {
     this.http.delete(this.booksUrl + id).subscribe(
       (res) => {
         alert("The book was deleted successfully!");

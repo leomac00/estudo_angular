@@ -27,6 +27,6 @@ export class RegisterBookComponent implements OnInit {
     });
   }
   onSubmit(): void {
-    this.BooksService.registerBook(this.form.value);
+    this.BooksService.register(this.form.value);
   }
 }
